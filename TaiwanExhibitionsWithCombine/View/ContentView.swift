@@ -27,11 +27,19 @@ struct ContentView: View {
                             }
                         }
                         .listStyle(PlainListStyle())
+                        
                     }
                 }
             }
             .navigationTitle("展覽列表")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                Button {
+                    viewModel.fetchAllExhibitions()
+                } label: {
+                    Image(systemName: "arrow.clockwise")
+                }
+            }
         }
         .onAppear {
             viewModel.fetchAllExhibitions()
